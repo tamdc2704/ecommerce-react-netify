@@ -15,7 +15,11 @@ export default class ProductsList extends Component {
               <ProductConsumer>
                 {store => {
                   return store.products.map(product => (
-                    <Product product={product} />
+                    <Product
+                      key={product.id}
+                      product={product}
+                      handleDetail={store.handleDetail}
+                    />
                   ));
                 }}
               </ProductConsumer>
