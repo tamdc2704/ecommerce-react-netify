@@ -9,19 +9,25 @@ export default class Product extends Component {
     return (
       <ProductWrapper className='col-9 col-md-6 col-lg-3 mx-auto my-3'>
         <div className="card">
-          <div className="img-container p-5">
-            <Link to='/detail'>
-              <img alt='product' src={img} className='card-img-top'/>
-            </Link>
-            <button
-              className="cart-btn"
-              disabled={inCart}
-            >
-              {
-                inCart ? <p className="text-capitalize">in cart</p> : <i className="fas fa-cart-plus"/>
-              }
-            </button>
-          </div>
+          <ProductConsumer>
+            {
+              value => (
+                <div className="img-container p-5">
+                  <Link to={`/detail/${id}`}>
+                    <img alt='product' src={img} className='card-img-top' />
+                  </Link>
+                  <button
+                    className="cart-btn"
+                    disabled={inCart}
+                  >
+                    {
+                      inCart ? <p className="text-capitalize">in cart</p> : <i className="fas fa-cart-plus"/>
+                    }
+                  </button>
+                </div>
+              )
+            }
+          </ProductConsumer>
           <div className="card-footer d-flex justify-content-between">
             <p className="align-self-center mb-0">{title}</p>
             <h5 className="text-blue font-italic mb-0">

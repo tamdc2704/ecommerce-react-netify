@@ -16,7 +16,7 @@ class App extends Component {
         <Narbar />
         <Switch>
           <Route exact path='/' component={ProductList} />
-          <Route path='/detail' component={Detail} />
+          <Route exact path='/detail/:id' component={Detail}/>
           <Route path='/cart' component={Cart} />
           <Route component={Default} />
         </Switch>
