@@ -22,7 +22,7 @@ export default class Detail extends Component {
                 <div className="row col-10 col-md-6 mx-auto my-3">
                   <img src={img} alt="img product" className="img-fluit"/>
                 </div>
-                <div className="row col-10 col-md-6 mx-auto my-3 text-capitalize">
+                <div className="row col-10 col-md-6 mx-auto my-3 text-capitalize flex-column">
                   <h2>model: {title}</h2>
                   <h4 className="text-blue">
                     made by: <span>{company}</span>
@@ -31,19 +31,22 @@ export default class Detail extends Component {
                     <strong>price: <span>$</span>{price}</strong> 
                   </h4>
                   <p className="font-weight-bold mt-3 mb-0">
-                    some info about product
+                    description
                   </p>
                   <p className="text-muted text-lowercase">
                     {info}
                   </p>
-                  <Link to="/">
+                  <div className="d-flex">
+                    <Link to="/">
+                      <CartButton>
+                        back ro products
+                      </CartButton>
+                    </Link>
                     <CartButton>
-                      back ro products
+                      {inCart? "in cart" : 'add to cart'}
                     </CartButton>
-                  </Link>
-                  <CartButton>
-                    {inCart? "in cart" : 'add to cart'}
-                  </CartButton>
+                  </div>
+                  
                 </div>
               </div>
             </div>
